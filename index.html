@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <!-- Your head content here -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -12,39 +13,44 @@
         crossorigin="anonymous"></script>
 </head>
 
+
+
 <body>
-   <div class="container" style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center;">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
-          <h5 class="card-title">Hey Duryab!</h5>
-          <p class="card-text" id="card">Won't you reply me ?</p>
-          <div class="buttons" style="display: flex; gap: 10px;">
-            <button type="button" class="btn btn-primary" id="yes">Yes</button>
-          <button type="button" class="btn btn-primary" id="moveButton">No</button>
-          </div>
+    <div class="container"
+        style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center;">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body"
+                style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                <h5 class="card-title">Hey Duryab!</h5>
+                <p class="card-text" id="card">Won't you reply to me?</p>
+                <div class="buttons" style="display: flex; gap: 10px;">
+                    <button type="button" class="btn btn-primary" id="yes">Yes</button>
+                    <button type="button" class="btn btn-primary" id="moveButton">No</button>
+                </div>
+            </div>
         </div>
-      </div>
-   </div>
+    </div>
+
+    <script>
+        const moveButton = document.getElementById('moveButton');
+        const maxWidth = 400; // Maximum X position (400px width)
+        const maxHeight = 400; // Maximum Y position (400px height)
+
+        moveButton.addEventListener('click', () => {
+            const randomX = Math.random() * (maxWidth - moveButton.clientWidth);
+            const randomY = Math.random() * (maxHeight - moveButton.clientHeight);
+
+            moveButton.style.position = 'absolute';
+            moveButton.style.left = randomX + 'px';
+            moveButton.style.top = randomY + 'px';
+        });
+
+        const yesButton = document.getElementById("yes");
+        const card = document.getElementById("card");
+        yesButton.addEventListener("click", () => {
+            card.innerHTML = "so please, yes 🤧";
+        });
+    </script>
 </body>
-<script>
-    const moveButton = document.getElementById('moveButton');
 
-    moveButton.addEventListener('click', () => {
-        const maxWidth = window.innerWidth - moveButton.clientWidth;
-        const maxHeight = window.innerHeight - moveButton.clientHeight;
-
-        const randomX = Math.random() * maxWidth;
-        const randomY = Math.random() * maxHeight;
-
-        moveButton.style.position = 'absolute';
-        moveButton.style.left = randomX + 'px';
-        moveButton.style.top = randomY + 'px';
-    });
-    const yesButton = document.getElementById("yes")
-    const card = document.getElementById("card")
-    yesButton.addEventListener("click", ()=>{
-card.innerHTML = "so plz na 🤧"
-    } )
-
-</script>
 </html>
